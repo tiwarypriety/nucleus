@@ -1,0 +1,151 @@
+package javaapplication4;
+
+import java.util.Scanner;
+
+class Vehicle
+{
+     int noOfWheels;
+    int noOfPassenger;
+     int model;
+    String make;
+     Vehicle(int noOfWheels,int noOfPassenger,int model,String make)
+     {
+         this.noOfWheels=noOfWheels;
+                 this.noOfPassenger=noOfPassenger;
+                 this.model=model;
+                 this.make=make;
+                 
+                 
+     }
+   void display()
+   {System.out.println("*********************************") ;
+       System.out.println("Number of wheels : " +  noOfWheels + "\nNumber of seats = " + noOfPassenger + "\nModel = " +model + "\nMake= "+ make);
+   }
+}
+ class Car extends Vehicle
+{
+    private int noOfDoors;
+    
+    Car(int noOfDoors)
+    {
+        super(4,3,123,"india");
+        this.noOfDoors= noOfDoors;
+    }
+    void display()
+    { System.out.println("*********************************") ;
+        System.out.println("Model = " +model + " Make= "+ make + "Number of Doors = "+  getNoOfDoors());
+    }
+
+    /**
+     * @return the noOfDoors
+     */
+    public int getNoOfDoors() {
+        return noOfDoors;
+    }
+
+    /**
+     * @param noOfDoors the noOfDoors to set
+     */
+    public void setNoOfDoors(int noOfDoors) {
+        this.noOfDoors = noOfDoors;
+    }
+}
+ class Convertible extends Car
+ {
+     boolean isHoodOpen=true;
+     Convertible()
+     {
+         super(4);
+         System.out.println("*********************************") ;
+        
+     }
+             
+     void display()
+     {
+         super.display();
+         if(isHoodOpen)
+         System.out.println("Hood is open");
+         else
+         System.out.println("Hood is closed");
+     }
+ }
+class SportCar extends Car
+{
+  
+  SportCar()
+  {
+      super(2);
+      System.out.println("*********************************") ;
+  }
+  void display()
+          {  
+             super.display();
+              
+          }
+}
+ public class AUTOMOBILE
+  {
+     void show(Vehicle v)
+     {
+         
+         if(v instanceof Car)
+         {
+             Car c=(Car)v;
+             c.display();
+         }}
+     
+         void show1(Car c1)
+         {
+             if(c1 instanceof SportCar)
+         {
+             SportCar sc=(SportCar)c1;
+             sc.display();
+         }
+              if(c1 instanceof Convertible)
+              {
+                 Convertible con=(Convertible)c1;
+                 con.display();
+              }}
+         
+        
+     
+      public static void main(String args[])
+              {
+                  int n;
+                 Scanner kb=new Scanner(System.in);
+                 
+                 do{
+			System.out.println("'1'.To create a vehicle object\n");
+			System.out.println("2.To create a car object\n");
+                          System.out.println("3.To createConvertible object\n");
+                          System.out.println("4.To create a SportCar object\n");
+                    
+                          AUTOMOBILE am= new AUTOMOBILE();
+                          
+                  n=kb.nextInt();
+                 switch(n)
+                         {
+                     case 1:
+                         Vehicle v=new Vehicle(2,3,1234,"china");
+                         v.display();
+                         break;
+                     case 2:
+                         Vehicle v1=new Car(5);
+                         am.show(v1);
+                         break;
+                     case 3:
+                         Car v2=new Convertible();
+                         am.show1(v2);
+                         break;
+                     case 4:
+                         Car v3=new SportCar();
+                         am.show1(v3);
+                         break;
+                        
+                 }
+                 System.out.println("*********************");
+                 }while(n!=0);
+                 
+                 
+              }
+  }

@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+class Student
+{  private String stdname;
+private  String stdid;
+private int stdgrade;
+
+    Student()
+{
+    System.out.println("Enter details of the Student");
+     System.out.println("===========================");
+}
+ Student(String stdid)   
+ {
+     this(stdid,"null",0);
+ }
+Student(String stdid, String stdname)  
+{
+    this(stdid,stdname,0);
+    this.stdname=stdname;
+}
+Student(String stdid, String stdname, int stdgrade)  
+{
+    this.stdid=stdid;
+    this.stdname=stdname;
+    this.stdgrade=stdgrade;
+}
+void display()
+{
+    System.out.println("name is "+ stdname+" id is "+ stdid + " grade is "+ stdgrade);
+}
+void display(int year)
+{ 
+    display();
+    this.year=year;
+}
+}
+public class Overloading {
+    public static void main(String args[])
+            {
+                
+            
+     System.out.println("1.TO CREATE STUDENT OBJECT");
+    System.out.println("2.TO DISPLAY THE STUDENT INFO.");
+     System.out.println("*************************");
+      System.out.println("ENTER ANY CHOICE");
+      Scanner kb=new Scanner (System.in);
+      int n=kb.nextInt();
+      switch(n)
+      {
+          case 1:if()
+      }
+      
+    
+    
+    
+}
