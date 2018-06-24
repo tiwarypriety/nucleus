@@ -1,0 +1,94 @@
+class Worker
+{
+    private String name;
+    private double salaryrate;
+    private  int hrs;
+     double salary;
+    Worker (String name,double salaryrate)
+    {
+            this.name=name;
+        this. salaryrate= salaryrate;
+    }
+    
+      void computepay(int hrs)
+      {
+          this.hrs=hrs;
+      }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @return the salaryrate
+     */
+    public double getSalaryrate() {
+        return salaryrate;
+    }
+
+    /**
+     * @return the salary
+     */
+    void display()
+    {
+        System.out.println("worker name= "+ name+ "salary rate = "+salaryrate);
+    }
+   
+}
+
+class HourlyWorker extends Worker
+{
+   HourlyWorker (String name,double salaryrate)
+    {
+            super(name,salaryrate);
+    }
+    void computepay(int hrs)
+    {
+        if(hrs<=40)
+        {
+            salary=getSalaryrate()*hrs; 
+            //System.out.println("salary is"+ salary);
+        }
+        else
+        {
+            
+            salary=((getSalaryrate()*40)+((hrs-40)*getSalaryrate()));
+           
+        }
+        System.out.println("Salary = "+ salary);
+    }
+}
+ 
+class SalariedWorker extends Worker
+{     
+    SalariedWorker(String name,double salaryrate)
+    {
+         super(name,salaryrate);
+    }
+    void computepay()
+    {
+        salary= getSalaryrate()*40; 
+       System.out.println("Salary = "+ salary);
+    }
+}
+public class WorkerMain {
+    
+    public static void main(String args[])
+    
+    {
+        
+        HourlyWorker hw=new HourlyWorker ("shyam",12);
+        hw.display();
+        hw.computepay(10);
+        
+        SalariedWorker sw= new SalariedWorker("ram",10);
+        
+        sw.display();
+         sw.computepay();
+        
+    }
+    
+}

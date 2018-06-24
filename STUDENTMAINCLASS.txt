@@ -1,0 +1,148 @@
+package javaapplication4.newpackage;
+
+import static java.lang.System.exit;
+import java.util.Scanner;
+
+class Student
+{
+    private String stdid;
+     private String stdname;
+      private String courseid;
+       private String gender;
+      static  private String phonenumber;
+        
+        Student(String stdid, String stdname,String courseid,String gender,String phonenumber)
+        {
+            this.stdid=stdid;
+                    this.stdname=stdname;
+                            this.courseid=courseid;
+                                    this. gender= gender;
+                                            this.phonenumber=phonenumber;}
+                                                 
+                                         
+        
+    /**
+     * @return the stdid
+     */
+    public String getStdid() {
+        return stdid;
+    }
+
+    /**
+     * @return the stdname
+     */
+    public String getStdname() {
+        return stdname;
+    }
+
+    /**
+     * @return the courseid
+     */
+    public String getCourseid() {
+        return courseid;
+    }
+
+    /**
+     * @return the gender
+     */
+    public String getGender() {
+        return gender;
+    }
+
+    /**
+     * @return the phonenumber
+     */
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    /**
+     * @param phonenumber the phonenumber to set
+     */
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+}
+class Hosteler extends Student
+{
+ static  private String hstl_name;
+   private int room_no;
+   
+   Hosteler(String hstl_name,int room_no)
+   { 
+       super("01cs0123","RAM","CS101","male","9834736519");
+       this.hstl_name=hstl_name;
+       this.room_no=room_no;
+       
+   }
+    void show()
+    {
+        System.out.println("NAME IS: " + getStdname()+"\nID IS: "+getStdid() +"\nCOURSE ID IS: "+getCourseid()+ "gender IS: "+ getGender()+"phonenumber IS"+  getPhonenumber()+"hstl name= "+ hstl_name+"room number="+room_no); ; }
+   
+    void modify(String hstlname,String phonenumber )
+            
+    {   
+        setHstl_name(hstlname);
+       
+            setPhonenumber( phonenumber);
+            
+    }
+
+    /**
+     * @return the hstl_name
+     */
+    public String getHstl_name() {
+        return hstl_name;
+    }
+
+    /**
+     * @param hstl_name the hstl_name to set
+     */
+    public void setHstl_name(String hstl_name) {
+        this.hstl_name = hstl_name;
+    }
+
+    /**
+     * @return the room_no
+     */
+    public int getRoom_no() {
+        return room_no;
+    }
+}
+
+public class StudentMainClass {
+   
+    public static void main(String args[])
+    {
+        System.out.println("STUDENT DETAIL IS ");
+         Hosteler h=new Hosteler("AASHIRWAAD",303);
+          h.show();
+         System.out.println("*************************************");
+         System.out.println("PRESS 1 TO MODIFY HSTL NAME and phone no:");
+         Scanner kb=new Scanner (System.in);
+          int n=kb.nextInt();
+          //kb.nextLine();
+          if(n==1)
+          {   System.out.println("ENTER NEW NUMBER");
+           String pnum=kb.nextLine();
+           kb.nextLine();
+           System.out.println("ENTER NEW HOSTEL NAME ");
+           String hname=kb.nextLine();
+              h.modify(hname, pnum);
+          System.out.println(" Modified STUDENT DETAIL IS ");
+          h.show();}
+          else
+              exit(1);
+              
+    }}
+                  
+        
+        
+        
+        
+    
+    
+    
+    
+    
+

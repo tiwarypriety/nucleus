@@ -1,0 +1,30 @@
+import java.math.*;
+
+class Calculate {
+    double volume(float l, float w, float h) {
+        return l * w * h;
+    }
+
+    double volume(float l) {
+        return l * l * l;
+    }
+
+    double volume(float r, float h) {
+        return Math.PI * r * r * h;
+    }
+}
+public class  VolumeClass{
+    public static void main(String args[]) {
+        Calculate c = new Calculate();
+        double rect_vol = c.volume(5, 8, 9);
+        System.out.println("volume of rectangle is " + rect_vol);
+        System.out.println("");
+        double cube = c.volume(5);
+        System.out.println("volume of cube is " + cube);
+        System.out.println("");
+        double cylinder = c.volume(6, 12);
+        System.out.println("volume of cylinder is " + cylinder);
+    }
+}
+
+    

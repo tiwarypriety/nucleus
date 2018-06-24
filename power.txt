@@ -1,0 +1,76 @@
+package javaapplication4.newpackage;
+
+import java.util.Scanner;
+
+class validation
+{
+    boolean chck_num(String s)
+    {
+        try
+        {
+            Double.parseDouble(s);
+              return true;
+        }   
+              catch(Exception e)
+              {
+                  return false;
+              }
+                }
+        
+            
+   boolean chck_int(String s)
+    {
+        try
+        {
+            Integer.parseInt(s);
+              return true;
+        }   
+              catch(Exception e)
+              {
+                  return false;
+              }
+                }
+}
+
+public class Power {
+    double calculate(double a,int n )
+    {if (n == 0)
+            return 1;
+        if (n == 1)
+            return a;
+        else{
+        double result =1;
+        for(int i=1;i<=n;i++)
+        {
+             result= result* a;
+        }
+   return result;
+    }}
+    
+public static void main(String args[])
+{ validation v=new validation(); 
+Power p=new Power();
+
+    Scanner kb=new Scanner(System.in);
+    System.out .println("ENTER THE NUMBER");
+    String a=kb.nextLine();
+    if(v.chck_num(a))
+    {
+         System.out .println("ENTER THE power to be raised");
+ 
+     String  n=kb.nextLine();
+       if(v.chck_int(n))
+       {
+            System.out .println("Answer is"+(p.calculate(Double.parseDouble(a),Integer.parseInt(n))));
+       }
+    else
+           System.out.println("POWER SHOULD BE an integer");
+    }else
+        
+         System.out.println("ENTER THE NUMBER");   
+    
+    
+    
+   
+    
+}}
