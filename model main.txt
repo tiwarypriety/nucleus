@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+
+class Model
+{      String model(String s)
+        {
+            if( s.equals("SUV"))
+                return "tata safari";
+            else if(s.equals("SEDAN"))
+                return "Tata indigo";
+            else if(s.equals("economy"))
+                
+                return "tata indica";
+                else if(s.equals("mini"))
+                    return "tata nano";
+               else
+                  return  " model not found";
+        
+    
+}}
+public class ModelMainClass {
+    public static void main(String args[])
+            
+    {  Model mdl =new Model();
+        System.out.println("ENTER THE CATEGORY OF CARS U WANT");
+         System.out.println("1.SUV");
+        System.out.println("2.SEDAN");
+        System.out.println("3.ECONOMY.");
+                System.out.println("4.MINI");
+           System.out.println("*****************") ;
+           Scanner s=new Scanner(System.in);
+           int n=s.nextInt();
+           switch(n)
+           {
+               case 1:
+                     
+                    System.out.println( mdl.model("SUV"));
+                     break;
+               case 2:
+                   
+                   System.out.println(mdl.model("sedan"));
+                   break;
+               case 3:
+                   
+                   System.out.println(mdl.model("economy"));
+                   break;
+               case 4:
+                   
+                   System.out.println(mdl.model("mini"));
+                   break;
+           }
+           
+           
+    }
+    
+}
