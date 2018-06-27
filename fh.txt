@@ -1,0 +1,112 @@
+package FileHandling;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+//import Collections.Student;
+
+class Student
+{ 
+	  Scanner kb=new Scanner(System.in);
+
+     int rollno;  
+     String name;  
+     int age;  
+            
+     Student(int rollno,String name,int age)
+     {  
+   
+    	   this.rollno=rollno;  
+           this.name=name;  
+           this.age=age;  
+     }  
+     
+     public  String toString()
+     {
+     	return "Name: " +name+ "  Roll no: "+rollno+ "  Age: "+age +"\n";
+     }
+     
+     
+}  
+
+public class FileHandling2 {
+	  FileWriter filewriter=null;
+	public void saveToFile(Student std)
+	{
+	try
+	{
+		filewriter=new FileWriter("file2.txt",true);  //
+		PrintWriter printwriter=new PrintWriter(filewriter);
+		//printwriter.print( std );
+		printwriter.write(std.toString()+"\n");
+		printwriter.flush();
+	}
+	catch(IOException e)
+	{
+		e.printStackTrace();
+	}
+
+finally
+{
+	try
+	{
+		filewriter.close();
+	}
+     catch(Exception w)
+     {
+    	 w.printStackTrace();
+     }
+ }
+	}	
+/*	public void readFromFile()
+	{
+		try
+		{
+			FileReader filereader=new FileReader("file2.txt,true");
+			BufferedReader bufferedreader=new BufferedReader(filereader);
+			String line=bufferedreader.readLine();
+			System.out.println(line);
+			
+		}
+		catch(IOException k)
+		{
+			k.printStackTrace();
+		}
+	//	catch(File)
+	}
+
+
+	*/
+
+	public static void main(String[] args) {
+		Student s1=new Student(101,"shyam",10);
+		Student s2=new Student(101,"ram",11);
+		Student s3=new Student(101,"rohit",12);
+		Student s4=new Student(101,"rohan",13);
+		Student s5=new Student(11,"seema",12);
+		
+		
+		 ArrayList <Student> l=new ArrayList <Student>();
+		  
+		  int choice=0;
+		  
+		  l.add(s1);//adding Student class object  
+		   l.add(s2);  
+		  l.add(s3);  
+		  l.add(s4);
+		  l.add(s5);
+		  
+		FileHandling2 f2=new FileHandling2();
+		
+		for( int i=0;i<l.size();i++)
+		{	Student s=(Student)  l.get(i);	
+		f2.saveToFile(s);}
+	
+	}
+
+}
