@@ -1,0 +1,134 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication4.newpackage;
+
+
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+//import Collections.Student;
+
+class Students
+{ 
+	  Scanner kb=new Scanner(System.in);
+
+     int rollno;  
+     String name;  
+     int age;  
+            
+     Students(int rollno,String name,int age)
+     {  
+   
+    	   this.rollno=rollno;  
+           this.name=name;  
+           this.age=age;  
+     }  
+     
+     public  String toString()
+     {
+     	return "Name:" +name+" "+ "Roll no:"+rollno+ " "+ "Age:"+age +"\n";
+     }
+     
+     
+}  
+
+public class FileHandling2 {
+	  FileWriter filewriter=null;
+	public void saveToFile(Students std)
+	{
+	try
+	{
+		filewriter=new FileWriter("d:\\filehandling\\file1.txt",true);  //
+		PrintWriter printwriter=new PrintWriter(filewriter);
+		//printwriter.print( std );
+		printwriter.println(std);
+            //   printwriter.append("\n");
+		printwriter.flush();
+	}
+	catch(IOException e)
+	{
+		e.printStackTrace();
+	}
+
+finally
+{
+	try
+	{
+		filewriter.close();
+	}
+     catch(Exception w)
+     {
+    	 w.printStackTrace();
+     }
+ }
+	}	
+	public void readFromFile()
+	{      FileReader filereader;
+		try
+		{
+			 filereader= new FileReader("d:\\filehandling\\file1.txt");
+			BufferedReader bufferedreader=new BufferedReader(filereader);
+			String line=bufferedreader.readLine();
+                        List l1=new ArrayList();
+                         
+                        while(line!=null)
+                        { 
+                     String[] information = line.split("//s");
+                     for( int i=0;i<information.length;i++)
+                     {
+                         l1.add(information[i]);
+                     }
+  line=bufferedreader.readLine();
+		} System.out.println(l1);
+                }
+		catch(IOException k)
+		{
+			k.printStackTrace();
+		}
+		
+	}
+
+
+	
+
+	public static void main(String[] args) {
+		Students s1=new Students(101,"shyam",10);
+		Students s2=new Students(101,"ram",11);
+		Students s3=new Students(101,"rohit",12);
+		Students s4=new Students(101,"rohan",13);
+		Students s5=new Students(11,"seema",12);
+		
+		
+		 ArrayList <Students> l=new ArrayList <Students>();
+		  
+		  int choice=0;
+		  
+		  l.add(s1);//adding Student class object  
+		   l.add(s2);  
+		  l.add(s3);  
+		  l.add(s4);
+		  l.add(s5);
+		  
+		FileHandling2 f2=new FileHandling2();
+		
+		for( int i=0;i<l.size();i++)
+		{	Students s=(Students)  l.get(i);	
+		f2.saveToFile(s);
+                }
+                f2.readFromFile();
+	
+	}
+
+}
