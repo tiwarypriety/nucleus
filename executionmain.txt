@@ -1,0 +1,27 @@
+package com.nucleus.execution;
+
+import java.util.Scanner;
+
+import com.nucleus.domain.Validation;
+
+public class ExecutionMain {
+
+	public static void main(String[] args) {
+	Scanner kb=new Scanner(System.in);
+	System.out.println("Enter the file path");
+	String path=kb.nextLine();
+	System.out.println("Enter the name of the file to be uploaded ");
+	String filename=kb.nextLine();
+	System.out.println("Enter the rejection level");
+	System.out.println(" R - if Record Level rejection is followed.");
+       System.out.println("F – if File level rejection is followed");
+       String choice=kb.nextLine();
+			Validation v;
+	Execution e;
+	if(v.filePath(path))
+	{
+	    e. readFromFile();
+	    System.out.println("enter the choice");
+	    System.out.println("")
+
+}

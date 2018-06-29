@@ -1,0 +1,43 @@
+package com.nucleus.domain;
+
+public class Validation {
+
+	
+	public boolean filePath(String path)
+{
+	if(path.endsWith(".txt"))
+	{
+		return true;
+	}
+	else
+		return false;
+}
+	public boolean checkPinCode(int pin)
+	{
+		if(pin==0)
+		{
+			return false;
+		}
+		int j=String.valueOf(pin).length();
+		if(j==6)
+		{	return true;}
+		else 
+		{	return false;}
+		
+	}
+	public boolean checkmail(String mail)
+	{
+		if(mail==null)
+			return false;
+		else if(mail.contains("@")&& mail.endsWith(".com"))
+			return true;
+		else
+			return false;
+		
+	}
+	
+	
+	
+	
+	
+}

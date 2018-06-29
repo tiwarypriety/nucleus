@@ -1,0 +1,90 @@
+package com.nucleus.execution;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.nucleus.domain.CustomerInfo;
+
+public class Execution {
+	
+	
+	public void readFromFile()
+
+	{      FileReader filereader;
+
+		try
+
+		{
+
+			 filereader= new FileReader("D://BRD1//testbrd.txt");
+
+			BufferedReader bufferedreader=new BufferedReader(filereader);
+
+			String line=bufferedreader.readLine();
+
+                        List l1=new ArrayList();
+
+                         
+
+                        while(line!=null)
+
+                        { 
+
+       String[] information= line.split("~",-1);
+
+        
+                    	
+                    	CustomerInfo c=new CustomerInfo();
+                    	c.setCustomerCode(information[0]);
+                    c.setCustomerCode(information[1]);
+                    c.setCustomerName(information[2]);
+                    c.setCustomerAddress1(information[3]);
+                    c.setCustomerAddress2(information[4]);
+                    c.setPin(Integer.parseInt(information[5]));
+                    c.setMailId(information[6]);
+                    c.setContactNumber(Long.parseLong(information[7]));
+                    c.setContactPerson(information[8]);
+                    c.setRecordStatus(information[9]);
+                    c.setFlag(information[10]);
+                    c.setDate(information[11]);
+                    c.setCreatedBy(information[12]);
+                    c.setModifiedDate(information[13]);
+                    c.setModifiedBy(information[14]);
+                    
+                    c.setAuthorizedDate(information[15]);
+                    c.setAuthorizedBy(information[16]);
+                   
+                   
+                    	
+
+                     } 
+  line=bufferedreader.readLine();
+
+		
+
+                }
+
+		catch(IOException k)
+
+		{
+
+			k.printStackTrace();
+
+		}
+
+		
+
+	}
+
+
+
+	public static void main(String[] args) {
+		Execution f2=new Execution();
+		f2.readFromFile();
+	
+	}
+
+}
